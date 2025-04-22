@@ -8,6 +8,7 @@ import sys
 
 DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
+DEFAULT_ASCENDING = True
 
 
 def sort_list(items, ascending=True):
@@ -24,9 +25,12 @@ def remove_duplicates_from_list(items):
 if __name__ == "__main__":
     filename = DEFAULT_FILENAME
     remove_duplicates = DEFAULT_DUPLICATES
-    if len(sys.argv) == 3:
+    ascending_order = DEFAULT_ASCENDING
+    if len(sys.argv) >= 3:
         filename = sys.argv[1]
         remove_duplicates = sys.argv[2].lower() == "yes"
+        if len(sys.argv) == 4:
+            ascending_order = sys.argv[3].lower() == "asc"
     else:
         print("Se debe indicar el fichero como primer argumento")
         print("El segundo argumento indica si se quieren eliminar duplicados")
@@ -44,6 +48,6 @@ if __name__ == "__main__":
         word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff"]
 
     if remove_duplicates:
-        word_list = remove_duplicates_from_list(word_list)
+        word_list = remove_duplicates_from_list(word_list, ascending=ascending_order)
 
     print(sort_list(word_list))
