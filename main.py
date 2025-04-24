@@ -8,7 +8,10 @@ import sys
 
 DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
+
 DEFAULT_DUPLICATES_BEFORE_SORT = False
+DEFAULT_ASCENDING = True
+
 
 
 def sort_list(items, ascending=True, remove_before_sort=False):
@@ -28,6 +31,7 @@ def remove_duplicates_from_list(items):
 if __name__ == "__main__":
     filename = DEFAULT_FILENAME
     remove_duplicates = DEFAULT_DUPLICATES
+
     remove_duplicates_before_sort = DEFAULT_DUPLICATES_BEFORE_SORT
     if len(sys.argv) == 4:
         filename = sys.argv[1]
